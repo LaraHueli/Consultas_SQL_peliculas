@@ -11,4 +11,8 @@ Empezamos a hacer las Quierys (carpeta Scripts)
 
 Actualizacion del README y organizacion de carpetas (sugerencias tras la presentacion del anterior proyecto)
 
+
 Renombramos y ordenamos las con sultas, añadiendo comentarios dentro de ellas.
+
+Renombramos y ordenamos las con sultas, añadiendo comentarios dentro de ellas.
+
