@@ -14,5 +14,4 @@ Actualizacion del README y organizacion de carpetas (sugerencias tras la present
 
 Renombramos y ordenamos las con sultas, añadiendo comentarios dentro de ellas.
 
-Renombramos y ordenamos las con sultas, añadiendo comentarios dentro de ellas.
-
+Nuevas consultas añadidas
