@@ -4,3 +4,4 @@ Creamos conexiones necesarias y el diagrama para trabajar
 Modificamos la BBDD
 Reorganizamos todas las capetas del protyecto 
 Empezamos a hacer las Quierys
+Actualizacion del README y organizacion de carpetas (sugerencias tras la presentacion del anterior proyecto)
