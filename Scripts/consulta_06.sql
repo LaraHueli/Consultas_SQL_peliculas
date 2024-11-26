@@ -1,3 +1,5 @@
+--Encuentra el nopmbnre y el apellido de los actores que tengan "allen" en su apellido.
+
 SELECT first_name AS "nombre",
 		last_name AS "apellido"
 FROM actor AS a;

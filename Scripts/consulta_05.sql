@@ -1,3 +1,5 @@
+--Ordena las peliculas por duracion de forma ascendente.
+
 SELECT title AS "titulo",
 		length AS "duracion"
 FROM film AS f 

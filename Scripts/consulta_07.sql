@@ -1,3 +1,6 @@
+-- Encuentra la cantidad total de peliculas en cada clasificacion de la tabla film y 
+-- muestra la calsificacion junto con el recuento
+
 SELECT 
     rating AS clasificacion, 
     COUNT(*) AS cantidad_peliculas
