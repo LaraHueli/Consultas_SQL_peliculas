@@ -1,18 +1,18 @@
--- crea una tabla temporal llamada "clientes_rentas_temporal" para 
--- almacenar el total de alquileres por cliente
+-- crea una tabla temporal llamada "peliculas_alquiladas" que 
+--almacene las peliculas que han sido alquiladas al menos 10 veces
 
-CREATE TEMPORARY TABLE clientes_rentas_temporal AS
+
+CREATE TEMPORARY TABLE peliculas_alquiladas AS
 	SELECT 
-   	 	CONCAT(c.first_name, ' ', c.last_name) AS "Nombre_Completo",
-    	COUNT(r.rental_id) AS "Total_Alquileres"
-	FROM 
-    	customer AS c
-	INNER JOIN 
-    	rental AS r ON c.customer_id = r.customer_id
-	GROUP BY 
-    	c.first_name, c.last_name
-	ORDER BY 
-    	COUNT(r.rental_id) DESC;
+			f.title AS "titulo",
+			count(r.rental_id) AS "total_alquileres"
+	FROM rental AS r 
+	INNER JOIN inventory AS i ON r.inventory_id = i.inventory_id 
+	INNER JOIN film AS f ON f.film_id = i.film_id
+	GROUP BY f.title 
+	HAVING count(r.rental_id) >= 10
+	ORDER BY count(r.rental_id) asc;
 
-SELECT * FROM clientes_rentas_temporal;
+SELECT * FROM peliculas_alquiladas;
+
 
