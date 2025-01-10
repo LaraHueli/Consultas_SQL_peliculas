@@ -10,6 +10,7 @@ La organización de los archivos y carpetas es la siguiente:
   - `categorias.sql`: Consultas sobre categorías de películas.
   - `clientes.sql`: Consultas relacionadas con los clientes y su comportamiento de alquiler.
   - `tendencias.sql`: Consultas que identifican patrones y tendencias en los datos de alquiler.
+  - `correcciones.sql`: Consultas que han sido corregidas durante la revisión del proyecto.
 - **README.md**: Este archivo, que describe el proyecto y su estructura.
 - **.project**: Archivo de configuración del entorno de desarrollo.
 
@@ -24,12 +25,28 @@ Para ejecutar este proyecto necesitas:
 2. Configura tu servidor de base de datos e importa el esquema de datos proporcionado.
 3. Navega a la carpeta `Scripts/` y ejecuta los scripts en el orden necesario para replicar los análisis.
 
+## ✅ Consultas Corregidas
+Durante la revisión, las siguientes consultas fueron ajustadas:
+
+- **Consulta 4**: Se corrigieron los comentarios y optimización de la lógica.
+- **Consulta 9**: Ajustamos los decimales del resultado para mantener consistencia.
+- **Consulta 11**: Se corrigió el `LIMIT` para mostrar solo el antepenúltimo resultado correctamente.
+- **Consulta 31**: Usamos `LEFT JOIN` para incluir todas las películas, incluso las que no tienen actores.
+- **Consulta 32**: Usamos `LEFT JOIN` para incluir todos los actores, incluso los que no tienen películas.
+- **Consulta 39**: Eliminamos el orden por nombre, dejando solo el apellido.
+- **Consulta 41**: Mostramos claramente el nombre más repetido.
+- **Consulta 42**: Concatenamos el nombre completo de los clientes.
+- **Consulta 64**: Confirmamos que la consulta funciona correctamente y es clara.
+
+Las consultas corregidas se encuentran ahora en el archivo `Scripts/correcciones.sql` para mayor claridad.
+
 ## 📊 Resultados y Conclusiones
-*Aún no se han definido las conclusiones finales del análisis. 
+*Aún no se han definido las conclusiones finales del análisis.*
 
 ## 🔄 Próximos Pasos
 - Optimizar las consultas SQL para mejorar su eficiencia.
-
+- Documentar las conclusiones finales del análisis.
+- Continuar con las mejoras y ampliación del proyecto.
 
 ## ✒ Autores
-- **Lara** - Analista de Datos en formació
+- **Lara** - Analista de Datos en formación.
