@@ -95,8 +95,9 @@ SELECT
 FROM payment AS p
 ORDER BY payment_id DESC -- Ordeno descendente
 LIMIT 1 -- pido solo 1 registro
-OFFSET 1; -- ignora la primera fila del resultado
+OFFSET 2; -- ignora la primera fila del resultado
 -- LIMIT 2 -- pido solo 2 registros. El error estaba en pedir 2 en lugar de 1
+-- OFFSET 2 para saltar los dos primeros resultados y seleccionar el antepenultimo alquiler
 
 
 --CONSULTA 12. Encuentra el titulo de las peliculas en la tabla "film" que no sean ni "nc-17" ni "G" en cuanto a clasificacion
@@ -661,21 +662,18 @@ ORDER BY title;
 
 
 --CONSULTA 60. Encuentra los nombres de los cliente que han alquilado al menos 7 peliculas distintas. Ordena los resultados alfabeticamente por apellido.
-SELECT 	concat(c.first_name, ' ', c.last_name) AS "Nombre_completo",
-		count(r.rental_id) AS "Alquileres_cliente"
-FROM customer AS c 
+SELECT 
+    CONCAT(c.first_name, ' ', c.last_name) AS "Nombre_completo",
+    COUNT(DISTINCT i.film_id) AS "Alquileres_cliente"
+FROM customer AS c
 INNER JOIN rental AS r ON c.customer_id = r.customer_id
-INNER JOIN inventory AS i ON i.inventory_id = r.inventory_id 
-WHERE c.customer_id IN (
-		SELECT c2.customer_id
-		FROM customer AS c2
-		INNER JOIN rental AS r2 ON c2.customer_id = r2.customer_id
-		INNER JOIN inventory AS i2 ON i2.inventory_id = r2.inventory_id 
-		WHERE i2.film_id >= 7
-)
-GROUP BY c.first_name, c.last_name 
-ORDER BY c.last_name asc;
+INNER JOIN inventory AS i ON r.inventory_id = i.inventory_id
+GROUP BY c.customer_id, c.first_name, c.last_name
+HAVING COUNT(DISTINCT i.film_id) >= 7
+ORDER BY c.last_name ASC;
 -- el error estaba en esta fila WHERE i2.film_id >= 7 que es  <=7 (porque al menos) 
+--Eliminé la subconsulta en el WHERE, ya que no es necesaria.
+-- La condición de "al menos 7 películas distintas" se maneja con HAVING
 
 
 --CONSULTA 61. Encuentra la cantidad total de peliuclas alquiladas por categoria y muestra el nombre de la categoria junto con el recuento de alquileres
